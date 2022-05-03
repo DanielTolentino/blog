@@ -1,0 +1,12 @@
+{
+  "blog_locale": "pt",
+  "blog_title": "Daniel Tolentino",
+  "blog_description": "Blog pessoal. Falo de tecnlogia, criatividade e o que vier na minha mente",
+  "blog_theme": "solar-theme",
+  "blog_author": "Daniel Tolentino",
+  "blog_author_url": "https://danieltolentino.netlify.app",
+  "blog_no_posts_hint": "No posts yet",
+  "blog_posted_by_hint": "Posted by:",
+  "blog_url": "https://blogcompleteurl.com",
+  "blog_prism_theme": "prism-tomorrow"
+}
