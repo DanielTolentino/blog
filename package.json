@@ -1,0 +1,30 @@
+{
+    "name": "1post",
+    "version": "1.4.3",
+    "description": "A tiny, fast and fun static site generator",
+    "main": "index.js",
+    "bin": {
+      "1post": "./index.js"
+  } ,
+    "scripts": {
+      "serve": "npx http-server -o"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/felippe-regazio/1post.git"
+    },
+    "keywords": [
+      "static",
+      "site",
+      "generator",
+      "blog",
+      "blogging",
+      "post"
+    ],
+    "author": "Felippe Regazio",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/felippe-regazio/1post/issues"
+    },
+    "homepage": "https://github.com/felippe-regazio/1post#readme"
+  }
