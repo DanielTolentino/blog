@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title>Daniel Tolentino</title>
+<link>https://danieltolentinoblog.netlify.app/</link>
+<description>Blog pessoal. Falo de tecnlogia, criatividade e o que vier na minha mente</description>
+
+<item>
+<title>Criatividade</title>
+<link>https://danieltolentinoblog.netlify.app/posts/criatividade/</link>
+<guid>https://danieltolentinoblog.netlify.app/posts/criatividade/</guid>
+<pubDate>Jun, 02 2020 16:23:21 GMT+0000</pubDate>
+<description>Description for your content.</description>
+</item>
