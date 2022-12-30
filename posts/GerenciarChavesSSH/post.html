@@ -1,0 +1,82 @@
+<!--:::{
+  "post_title": "Gerenciado chaves privadas com KeypassXC",
+  "post_description": "Uma maneira fácil de manter suas chaves seguras",
+  "post_created_at": "Thu Dec 29 2022 23:52:59 GMT-0300 (Horário Padrão de Brasília)"
+}:::-->
+
+<p>Estou experimentando criar alguns servidores na nuvem e sempre preciso gerenciar chaves SSH, tenho a opção de fazer upload da minha chave pública para o servidor, ou obter a chave privada (só tenho uma chance para fazer isso) e guardar no meu computador. Toda vez que for feita uma conexão, é necessário passar o caminho da chave, como <code>ssh -i ~/.ssh/ssh_private.key user@servidor</code>
+<br>
+Se você fizer isso a sua chave estará em uma pasta de fácil acesso e visível, mesmo com senha ainda sim é bom ter um lugar seguro que você possa fazer backup de um arquivo criptografado e não a chave em si.
+<br>
+Outro ponto positivo desse metódo é a organização dos arquivos mais sensíveis, sem a necessidade de deixar todos em pastas espalhadas pela sua /home. Fácil de manter controle, adicionar, apagar, descrever e organizar via tags, tudo em um só lugar.
+</p>
+
+<h2>Instalando o KeepassXC</h2>
+
+<p>Precisaremos do software instalado.
+<br>
+Distros Debian-Based:
+<code>sudo apt install keepassxc</code>
+<br>
+Fedora:
+<code> sudo dnf install keepassxc</code>
+</p>
+
+
+<h4> Criando um banco de dados para guardar suas chaves</h4>
+
+<p>Agora precisamos criar um banco de dados criptografado. O banco é um arquivo de extensão .kdbx, você pode guardar em um local seguro e abrir em outro dispositivo, de forma segura. Só não deixe isso público, mesmo criptografado você não quer esse arquivo rodando por aí.</p>
+
+<img src="img/newdb.png" alt="drawing" width="100%"/>
+
+<p>Escolha um nome e descrição.</p>
+<img src="img/dbname.png" alt="drawing" width="100%"/>
+
+<p>Pode deixar a configuração padrão.</p>
+
+<img src="img/crypt.png" alt="drawing" width="100%"/>
+
+<p>E escolha uma senha <b>complexa</b> e guarde em um local <b>seguro</b>.</p>
+
+<img src="img/pass.png" alt="drawing" width="100%"/>
+
+<p>Finalize a criação do banco de dados.</p>
+
+<h4>Ativar o SSH Agent no KeepassXC</h4>
+
+<p>Antes de tudo, o passo mais importante é ativar a integração com o SSH Agent, para que o Keepass seja capaz de invocar a chave, adicionar ao seu enviroment e deixá-la disponível para ser acessada.</p>
+
+<img src="img/keys-img/ativar_agent.png" alt="drawing" width="100%"/>
+
+<h4>Adicionar a chave ao banco de dados</h4>
+
+<p>Vamos adicionar a chave ao banco de dados do KeepassXC!</p>
+
+<img src="img/keys-img/adicionar.png" alt="drawing" width="100%"/>
+
+<p>Defina um título para o item.</p>
+
+<img src="img/keys-img/titulo.png" alt="drawing" width="100%"/>
+
+<p>E agora um dos passos mais legais, adicionar sua chave como anexo!</p>
+
+<img src="img/keys-img/adicionar_anexo.png" alt="drawing" width="100%"/>
+<img src="img/keys-img/files.png" alt="drawing" width="100%"/>
+
+<p>Você poderia deletar a sua chave privada da pasta, mas calma, vamos nos certificar que está tudo certo até o final.</p>
+
+<p>Vá até o menu de AgentSSH do item que você está criando:</p>
+<img src="img/keys-img/agentssh.png" alt="drawing" width="100%"/>
+
+<p>Clique em "Anexo" e selecione sua chave no menu que irá abrir.</p>
+<img src="img/keys-img/done.png" alt="drawing" width="100%"/>
+
+<p>Se a sua tela estiver como está na foto, tudo certo! Agora sua chave está adicionada no DB do KeepassXC. Algumas coisas a considerar:
+Ative as duas primeiras opções da última tela, e clique para adicionar a chave ao "agente".
+
+Clique em "OK", volte para a tela inicial e clique com o botão direito no item, e clique para adicioná-lo ao Agent (ou use o atalho Ctrl + H).</p>
+
+<p>Pronto, agora você pode abrir o terminal, digitar apenas o comando <code>ssh user@servidor</code>, o KeepasXC irá prover a chave privada automaticamente e a conexão será feita.
+
+Se você fechar o KeepassXC ou bloquear o cofre a chave é retirada do SSH Agent e sua conexão será encerrada, isso é por segurança, para que a chave funcione apenas se você desbloquear o banco de dados intencionalmente, assim você pode saber se está seguro ou não.
+Pode deletar a chave da pasta "pública", agora ela está segura no banco de dados e é portável!</p>
