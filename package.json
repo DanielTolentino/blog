@@ -28,6 +28,6 @@
     },
     "homepage": "https://github.com/felippe-regazio/1post#readme",
     "devDependencies": {
-        "1post": "^1.4.9"
+        "1post": "^1.5.0"
     }
 }
