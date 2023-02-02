@@ -28,7 +28,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon" href="../../favicon.png">
   <link href="https://unpkg.com/plume-css@1.0.13/lib/plume-all.css" rel="stylesheet" rel="preload" as="style" media="all" defer>
-  <link rel="stylesheet" href="https://unpkg.com/1post@1.0.3/themes/solar-theme.css">
+  <link rel="stylesheet" href="https://unpkg.com/1post@1.5.0/themes/solar-theme.css">
   <link href="https://unpkg.com/prismjs@1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 
   <style>
@@ -47,7 +47,7 @@
 
     <p>
       <a href="../..">← ← ←</a> &nbsp; 
-      29/12/2022 23:52:59 | <strong>Posted by:</strong>
+      30/12/2022, 02:52:59 | <strong>Posted by:</strong>
       <a href="https://danieltolentino.netlify.app" target="_blank" rel="noreferrer noopener">Daniel Tolentino</a>
     </p>
 
@@ -55,11 +55,11 @@
 
     
 
-<p>Estou experimentando criar alguns servidores na nuvem e sempre preciso gerenciar chaves SSH, tenho a opção de fazer upload da minha chave pública para o servidor, ou obter a chave privada (só tenho uma chance para fazer isso) e guardar no meu computador. Toda vez que for feita uma conexão, é necessário passar o caminho da chave, como <code>ssh -i ~/.ssh/ssh_private.key user@servidor</code>
+<p>Estou experimentando com alguns servidores na nuvem e sempre preciso gerenciar chaves SSH, tenho a opção de fazer upload da minha chave pública para o servidor ou obter a chave privada (só tenho uma chance para fazer isso) e guardar no meu computador. Toda vez que for feita uma conexão é necessário passar o caminho da chave, como <code>ssh -i ~/.ssh/ssh_private.key user@servidor</code>
 <br>
 Se você fizer isso a sua chave estará em uma pasta de fácil acesso e visível, mesmo com senha ainda sim é bom ter um lugar seguro que você possa fazer backup de um arquivo criptografado e não a chave em si.
 <br>
-Outro ponto positivo desse metódo é a organização dos arquivos mais sensíveis, sem a necessidade de deixar todos em pastas espalhadas pela sua /home. Fácil de manter controle, adicionar, apagar, descrever e organizar via tags, tudo em um só lugar.
+Há vários pontos positivo desse metódo, como a organização dos arquivos mais sensíveis em um banco criptografado, sem a necessidade de deixar todos em pastas espalhadas pela sua /home. Fácil de manter controle, adicionar, apagar, descrever e organizar via tags, tudo em um só lugar.
 </p>
 
 <h2>Instalando o KeepassXC</h2>
@@ -131,6 +131,7 @@ Clique em "OK", volte para a tela inicial e clique com o botão direito no item,
 
 Se você fechar o KeepassXC ou bloquear o cofre a chave é retirada do SSH Agent e sua conexão será encerrada, isso é por segurança, para que a chave funcione apenas se você desbloquear o banco de dados intencionalmente, assim você pode saber se está seguro ou não.
 Pode deletar a chave da pasta "pública", agora ela está segura no banco de dados e é portável!</p>
+
     <!--Profile pic and Social links-->
     <hr style="margin-bottom: 1.75rem;"><footer><div style="display: flex; margin-bottom: 4.375rem;"><div class=" gatsby-image-wrapper" style="position: relative; overflow: hidden; display: inline-block; width: 50px; height: 50px; margin-right: 0.875rem; margin-bottom: 0px; min-width: 50px; border-radius: 100%;"><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAMFAQIE/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEDAv/aAAwDAQACEAMQAAAB4JNcp166BBGanYidv//EAB0QAAICAgMBAAAAAAAAAAAAAAIDAAEREgQUISL/2gAIAQEAAQUCr7F6BAMQ6Zx41286xYfez2enRXj/xAAXEQEBAQEAAAAAAAAAAAAAAAAAAREy/9oACAEDAQE/AWL0j//EABYRAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAgEBPwEmH//EABwQAAICAgMAAAAAAAAAAAAAAAECABEQIUFhgf/aAAgBAQAGPwJaEtS3owoMAUanES4o7x//xAAbEAEBAQEAAwEAAAAAAAAAAAABESEAMUFRkf/aAAgBAQABPyEuIbD94+w3SHVwhQ2k3t0FbffESpfl5DeJnSsZmdkWzv/aAAwDAQACAAMAAAAQV9f9/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERITH/2gAIAQMBAT8QSUdKHycH/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERMSH/2gAIAQIBAT8QdvCmo9P/xAAdEAEBAAMAAgMAAAAAAAAAAAABEQAhMUFRYXGh/9oACAEBAAE/EIuUEV3W/wByGsjgnV57MELGZUpJkU3ZhAnBFbeDf3j0UK+D45jAWgPEHAKJ0OJgwnwL6z//2Q==" alt="" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 0; border-radius: 50%;"><picture><source srcset="/profilepic.png 1x,
       /profilepic.png 1.5x,
