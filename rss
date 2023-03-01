@@ -2,21 +2,29 @@
 <rss version="2.0">
 <channel>
 <title>Daniel Tolentino</title>
-<link>https://blog.danieltolentino.omg.lol/</link>
+<link>https://blog.danieltolentino.tech/</link>
 <description>Blog pessoal. Falo de tecnlogia, criatividade e o que vier na minha mente</description>
 
 <item>
+<title>Como exportar e importar distro WSL</title>
+<link>https://blog.danieltolentino.tech/posts/wsl-exportar-importar/</link>
+<guid>https://blog.danieltolentino.tech/posts/wsl-exportar-importar/</guid>
+<pubDate>Wed Mar 01 2023 23:19:21 GMT-0300</pubDate>
+<description>Como exportar e importar imagens WSL para compartilhar com o time ou fazer backup</description>
+</item>
+
+<item>
 <title>Gerenciado chaves privadas com KeypassXC</title>
-<link>https://blog.danieltolentino.omg.lol/posts/gerenciarchavesssh/</link>
-<guid>https://blog.danieltolentino.omg.lol/posts/gerenciarchavesssh/</guid>
+<link>https://blog.danieltolentino.tech/posts/gerenciarchavesssh/</link>
+<guid>https://blog.danieltolentino.tech/posts/gerenciarchavesssh/</guid>
 <pubDate>Dec, 30 2022 23:52:59 GMT-0300</pubDate>
 <description>Uma maneira fácil de manter suas chaves seguras</description>
 </item>
 
 <item>
 <title>Criatividade</title>
-<link>https://blog.danieltolentino.omg.lol/posts/criatividade/</link>
-<guid>https://blog.danieltolentino.omg.lol/posts/criatividade/</guid>
+<link>https://blog.danieltolentino.tech/posts/criatividade/</link>
+<guid>https://blog.danieltolentino.tech/posts/criatividade/</guid>
 <pubDate>Jun, 02 2020 16:23:21 GMT+0000</pubDate>
 <description>Criatividade?
 Primeira coisa antes de continuar: O que é criatividade para você?
