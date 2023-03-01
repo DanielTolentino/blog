@@ -102,12 +102,3 @@ dist
 
 # TernJS port file
 .tern-port
-
-# Blog Generated Files
-posts/**
-/index.html
-/template-index.html
-/template-post.html
-/blog-config.json
-/card.jpg
-/favicon.png
