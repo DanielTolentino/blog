@@ -1,0 +1,114 @@
+<!-- This is an automatically generated file, do not edit it directly -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <title>Como exportar e importar distro WSL</title>
+  <meta charset="UTF-8">
+  
+  <!-- SEO -->
+  <meta name="author" content="Daniel Tolentino">
+  <meta property="og:title" content="Como exportar e importar distro WSL">
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Como exportar e importar imagens WSL para compartilhar com o time ou fazer backup">
+  <meta property="og:site_name" content="Daniel Tolentino">
+  <meta name="description" content="Como exportar e importar imagens WSL para compartilhar com o time ou fazer backup">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="Daniel Tolentino">
+  <meta name="twitter:creator" content="Daniel Tolentino">
+  <meta name="twitter:title" content="Como exportar e importar distro WSL">
+  <meta name="twitter:description" content="Como exportar e importar imagens WSL para compartilhar com o time ou fazer backup">
+  <meta name="twitter:image:src" content="https://blogcompleteurl.com/card.jpg">
+  <meta property="og:url" content="https://blogcompleteurl.com/posts/wsl-exportar-importar">
+  <meta property="og:image" content="https://blogcompleteurl.com"/>
+  <!--  -->
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="pt">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="../../favicon.png">
+  <link href="https://unpkg.com/plume-css@1.0.13/lib/plume-all.css" rel="stylesheet" rel="preload" as="style" media="all" defer>
+  <link rel="stylesheet" href="https://unpkg.com/1post@1.5.0/themes/solar-theme.css">
+  <link href="https://unpkg.com/prismjs@1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    :root {
+      --pm-paragraph-font-size: 1.2em
+    }
+
+    .plume .pm-link, .plume a {
+      font-size: var(--pm-paragraph-font-size);
+    }
+  </style>  
+</head>
+<body class="plume">
+  <div class="pm-container">
+    <h1>Como exportar e importar distro WSL</h1>
+
+    <p>
+      <a href="../..">← ← ←</a> &nbsp; 
+      01/03/2023, 23:19:21 | <strong>Posted by:</strong>
+      <a href="https://danieltolentino.netlify.app" target="_blank" rel="noreferrer noopener">Daniel Tolentino</a>
+    </p>
+
+    <hr>
+
+    
+
+<p>O Subsistema do Windows para Linux (WSL) é um recurso no Windows 10/11 que permite aos usuários executar aplicativos Linux nativamente no Windows. Ele fornece um ambiente de linha de comando que pode ser usado para instalar e executar aplicativos Linux sem a necessidade de uma máquina virtual ou de dualboot. A instalação e configuração do WSL é bastante simples, ele possui um recurso de exportação de imagens. Neste post do blog, discutiremos como exportar imagens do WSL, o que pode ser útil para fins de backup e compartilhamento.</p>
+
+<h2>Exportando imagens do WSL</h2>
+<h3>Passo 1: Listar imagens do WSL disponíveis</h3>
+<p>Para exportar uma imagem do WSL, primeiro precisamos listar todas as imagens do WSL disponíveis. Para fazer isso, abra o PowerShell do Windows e execute o seguinte comando:</p>
+
+<pre>wsl --list --verbose</pre><p>
+
+<p>Este comando listará todas as imagens do WSL disponíveis e seus metadados, incluindo seus nomes, distribuições e caminhos.</p>
+
+<h3>Passo 2: Criar um novo arquivo Tar</h3>
+<b>O parâmetro '--exclude' é opcional </b>
+<p>Depois de listar as imagens do WSL disponíveis, precisamos criar um novo arquivo tar que conterá a imagem exportada. Para fazer isso, execute o seguinte comando:</p>
+
+<pre>mkdir ~/wsl-backup
+cd ~/wsl-backup
+tar -czvf backup.tar.gz --exclude=proc --exclude=sys --exclude=dev --exclude=tmp --exclude=run --exclude=mnt --exclude=media --exclude=lost+found / </pre>
+
+<p>Este comando criará um novo arquivo tar com o nome backup.tar.gz no diretório ~/wsl-backup. A opção --exclude é usada para excluir determinados diretórios que não devem ser incluídos na imagem exportada.</p>
+
+<h3>Passo 3: Exportar a imagem do WSL</h3>
+<p>Depois de criar o arquivo tar, agora podemos exportar a imagem do WSL. Para fazer isso, execute o seguinte comando:</p>
+
+<pre>wsl --export {NomeDaDistribuição} backup.tar.gz</pre>
+
+<p>Substitua {NomeDaDistribuição} pelo nome da distribuição WSL que você deseja exportar. Este comando exportará a imagem WSL selecionada para o arquivo backup.tar.gz que criamos no passo anterior.</p>
+
+<h2>Importando imagens do WSL</h2>
+<p2>Depois de exportar uma imagem do WSL, você pode importá-la em outra máquina ou compartilhá-la com outros. Para importar uma imagem do WSL, siga estes passos:</p2>
+
+<h3>Passo 1: Copiar o arquivo Tar</h3>
+<p>Copie o arquivo backup.tar.gz para a máquina de destino ou distribua-o para outros. Você pode usar qualquer método de transferência de arquivos que preferir, como e-mail, armazenamento em nuvem ou unidade USB.</p>
+
+<h3>Passo 2: Importar a imagem do WSL</h3>
+<p>Na máquina de destino, abra o PowerShell do Windows e execute o seguinte comando:</p>
+
+<pre>wsl --import {NomeDaDistribuição} {LocalDeInstalação} backup.tar.gz</pre>
+
+<p>Substitua {NomeDaDistribuição} pelo nome da distribuição WSL que você deseja importar, {LocalDeInstalação} pelo diretório em que deseja instalar a distribuição e backup.tar.gz pelo nome do arquivo .tar</p>
+    <!--Profile pic and Social links-->
+    <hr style="margin-bottom: 1.75rem;"><footer><div style="display: flex; margin-bottom: 4.375rem;"><div class=" gatsby-image-wrapper" style="position: relative; overflow: hidden; display: inline-block; width: 50px; height: 50px; margin-right: 0.875rem; margin-bottom: 0px; min-width: 50px; border-radius: 100%;"><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAMFAQIE/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEDAv/aAAwDAQACEAMQAAAB4JNcp166BBGanYidv//EAB0QAAICAgMBAAAAAAAAAAAAAAIDAAEREgQUISL/2gAIAQEAAQUCr7F6BAMQ6Zx41286xYfez2enRXj/xAAXEQEBAQEAAAAAAAAAAAAAAAAAAREy/9oACAEDAQE/AWL0j//EABYRAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAgEBPwEmH//EABwQAAICAgMAAAAAAAAAAAAAAAECABEQIUFhgf/aAAgBAQAGPwJaEtS3owoMAUanES4o7x//xAAbEAEBAQEAAwEAAAAAAAAAAAABESEAMUFRkf/aAAgBAQABPyEuIbD94+w3SHVwhQ2k3t0FbffESpfl5DeJnSsZmdkWzv/aAAwDAQACAAMAAAAQV9f9/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERITH/2gAIAQMBAT8QSUdKHycH/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERMSH/2gAIAQIBAT8QdvCmo9P/xAAdEAEBAAMAAgMAAAAAAAAAAAABEQAhMUFRYXGh/9oACAEBAAE/EIuUEV3W/wByGsjgnV57MELGZUpJkU3ZhAnBFbeDf3j0UK+D45jAWgPEHAKJ0OJgwnwL6z//2Q==" alt="" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 0; border-radius: 50%;"><picture><source srcset="/profilepic.png 1x,
+      /profilepic.png 1.5x,
+      /profilepic.png 2x"><img srcset="/profilepic.png 1x,
+      /profilepic.png 1.5x,
+      /profilepic.png 2x" src="/profilepic.png" alt="@DanielTolentino" loading="lazy" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center center; opacity: 1; transition: none 0s ease 0s; border-radius: 50%;" width="50" height="50"></picture><noscript><picture><source srcset="/profilepic.png 1x,
+      /profilepic.png 1.5x,
+      /profilepic.png 2x" /><img loading="lazy" width="50" height="50" srcset="/profilepic.png 1x,
+      /profilepic.png 1.5x,
+      /profilepic.png 2x" src="/profilepic.png" alt="@DanielTolentino" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><p>Written by <strong>@DanielTolentino</strong> web dev <a href="https://instagram.com/daniel.tolentino.0">You should follow me on Instagram</a></p></div></footer></article><nav><ul style="display: flex; flex-wrap: wrap; justify-content: space-between; list-style: none; padding: 0px;"><li></li><li></li></ul></nav>
+    
+  </div>
+
+  <!-- Prism Code Highlighting -->
+  <script src="https://unpkg.com/prismjs@1.28.0/components/prism-core.min.js"></script>
+	<script src="https://unpkg.com/prismjs@1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
