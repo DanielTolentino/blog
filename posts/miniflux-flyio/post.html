@@ -1,0 +1,95 @@
+<!--:::{
+  "post_title": "Fazer deploy do miniflux com fly.io",
+  "post_description": "Aprenda a criar seu prório serviço de RSS com o miniflux e o fly.io",
+  "post_created_at": "Thu Aug 10 2023 16:51:35 GMT+0000 (Coordinated Universal Time)"
+}:::-->
+
+<h1>Miniflux: Configuração Simples com fly.io</h1>
+
+<p>
+  Após ter tomado conhecimento do PC do Manual (<a
+    href="https://pcdomanual.com/"
+    >https://pcdomanual.com/</a
+  >), eu fiquei intrigado com o Miniflux. Pareceu-me o serviço perfeito que eu
+  estava procurando há muito tempo. A galera do Manual tem o próprio servidor, o
+  que é bem legal. Eu recomendo apoiar (<a
+    href="https://manualdousuario.net/apoie/"
+    >https://manualdousuario.net/apoie/</a
+  >) eles e usar o serviço do Manual. Mas eu queria algo mais simples, que eu
+  pudesse usar em qualquer lugar e que fosse fácil de instalar e manter.
+</p>
+
+<p>
+  Então, após pensar em alternativas de hospedagem (já tenho alguns serviços
+  como Adguard e Nextcloud), eu queria chegar na solução mais simples, e foi o
+  fly.io e o tier gratuito (mais do que o suficiente para o Miniflux).
+</p>
+
+<p>Indo direto ao ponto, aqui está o que eu fiz:</p>
+
+<ul>
+  <li>
+    Criei os arquivos do Docker baseados na configuração padrão da documentação
+    do Miniflux
+  </li>
+  <li>Criei os Dockerfiles e docker-compose</li>
+  <li>Fiz o deploy no Fly.io</li>
+  <li>Configurei o DNS para apontar para o Fly.io no Cloudflare</li>
+</ul>
+
+<p>
+  Aqui está o repositório:
+  <a href="https://github.com/DanielTolentino/miniflux-flyio"
+    >https://github.com/DanielTolentino/miniflux-flyio</a
+  >
+</p>
+
+<p>Para começar:</p>
+
+<ol>
+  <li>Faça o clone do repositório</li>
+  <li>
+    Instale a ferramenta flyctl (<a
+      href="https://fly.io/docs/hands-on/install-flyctl/"
+      >https://fly.io/docs/hands-on/install-flyctl/</a
+    >)
+  </li>
+  <li>
+    Defina o segredo ADMIN_PASSWORD com o comando
+    <code>flyctl secrets set ADMIN_PASSWORD=sua_senha</code>
+  </li>
+  <li>Execute o comando <code>flyctl launch</code> e siga os passos</li>
+  <pre>
+  <code >
+    $ Would you like to set up a Postgresql database now? Yes 
+    $ Select configuration: Development - Single node, 1x shared CPU, 256MB RAM, 1GB disk
+    $ Scale single node pg to zero after one hour? No (fica a seu critério)
+    $Would you like to set up an Upstash Redis database now? No 
+    Wrote config file fly.toml 
+    $ Would you like to deploy now? Yes 
+  </code>
+  </pre>
+  <p>
+    O fly.io vai gerar automaticamente a url do banco de dados e sua secret para
+    funcionar no docker, de forma segura.
+  </p>
+
+  <li>
+    Rode o comando $fly deploy Ele vai subir a aplicação em um endereço como
+    maquina-123.fly.dev
+  </li>
+  <li>
+    Vá no Cloudflare e crie um registro do tipo CNAME apontando para o endereço
+    do Fly.io com o endereço da sua aplicação (maquina-123.fly.dev) e desative o
+    proxy, deixando apenas como DNS Only
+  </li>
+  <li>
+    Volte no terminal e rode o comando
+    <code>flyctl certs create seudominio.com.br</code>
+  </li>
+</ol>
+
+<p>
+  Automaticamente, o Fly.io irá gerar o certificado HTTPS e o serviço estará
+  disponível para acesso via navegador direto do seu domínio personalizado.
+</p>
